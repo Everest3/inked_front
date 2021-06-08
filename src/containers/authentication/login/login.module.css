@@ -1,0 +1,36 @@
+/* NAVBAR SECTION */
+
+@media (max-width: 980px) {
+  .form-control {
+    width: 100% !important;
+  }
+  .collapse .btn {
+    border-right: none !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  .modal .mb-3 input {
+    margin-left: 0px !important;
+  }
+  .modal .btn {
+    margin-left: 0px !important;
+    width: 100% !important;
+  }
+}
+
+/* NAVBAR SECTION - MODALS STYLING*/
+#signupModal h5 {
+  font-family: "Syne", sans-serif;
+  margin-left: 40%;
+}
+
+.input {
+  margin-bottom: 30px;
+  width: 300px;
+  margin-left: 20%;
+  padding-top: 15px;
+  padding-bottom: 12px;
+  border-radius: 12px;
+  border: 0;
+}
