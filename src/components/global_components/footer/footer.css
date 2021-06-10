@@ -1,0 +1,29 @@
+.footer .icons {
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 5px;
+}
+.footer .icons i {
+  padding-left: 25px;
+  padding-right: 25px;
+  color: #8e9aaf;
+}
+.footer .icons p {
+  font-family: "Syne", sans-serif;
+  color: #8e9aaf;
+}
+.footer .footer-bottom {
+  height: auto;
+  background-color: #dee2ff;
+  color: #000000;
+  font-family: "Syne", sans-serif;
+  font-size: 22px;
+  margin-bottom: -20px;
+}
+.footer .footer-bottom li {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.footer .footer-bottom a {
+  color: #000000;
+}

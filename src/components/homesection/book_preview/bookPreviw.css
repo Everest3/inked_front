@@ -1,0 +1,71 @@
+.book-preview .fa {
+  margin-top: 15px;
+}
+.book-preview h1 {
+  font-family: "Syne", sans-serif;
+  color: #8e9aaf;
+  margin-top: 50px;
+}
+.book-preview h4 {
+  margin-top: 50px;
+  margin-bottom: 40px;
+  font-family: "Syne", sans-serif;
+}
+.book-preview .card-group {
+  margin-bottom: 50px;
+}
+.book-preview .card {
+  margin-right: 30px;
+  border: 0;
+  padding: 0 !important;
+}
+/* .card-body  {
+	padding-left: 100px;
+} */
+
+.book-preview .card-title {
+  font-family: "Syne", sans-serif;
+}
+.book-preview .card-subtitle {
+  font-family: "Syne", sans-serif;
+}
+.book-preview .card .btn-sm {
+  background-color: #dee3ff;
+  color: black;
+  border: 0;
+  width: fit-content;
+}
+.book-preview .startreading .btn {
+  background-color: #d58b96;
+  color: white;
+  font-family: "Syne", sans-serif;
+  margin-top: 20px;
+}
+.book-preview .card .btn-sm {
+  background-color: #dee3ff;
+  color: black;
+  border: 0;
+  margin-top: 20px;
+  width: fit-content;
+  margin-right: 20px;
+}
+.book-preview h5 {
+  font-family: "Syne", sans-serif;
+}
+.book-preview .plus .btn-lg:first-child {
+  background-color: #d58b96;
+  color: white;
+  border: 0;
+  margin-top: 50px;
+}
+.book-preview .plus .btn-lg {
+  border: 0;
+  margin-top: 50px;
+}
+.book-preview #fotomesit {
+  width: 300px;
+  height: 350px;
+}
+.book-preview #middle-card {
+  padding-left: 100px;
+}

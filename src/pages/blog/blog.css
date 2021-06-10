@@ -1,0 +1,95 @@
+.blog h1 {
+  color: #edd2d6;
+  font-family: "Syne", sans-serif;
+  background-color: black;
+  height: 70px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 70px;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+/* CAROUSEL */
+.blog #owl-demo .item {
+  margin: 3px;
+}
+
+.blog #owl-demo .item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.blog .owl-carousel .nav-btn {
+  height: 47px;
+  position: absolute;
+  width: 26px;
+  cursor: pointer;
+  top: 100px !important;
+}
+.blog .owl-carousel .prev-slide {
+  background: url(../../assets/blogimages/iconfinder_nav-arrow-left_383101.png)
+    no-repeat scroll 0 0;
+  left: -33px;
+}
+.blog .owl-carousel .next-slide {
+  background: url(../../assets/blogimages/iconfinder_nav-arrow-left_383101.png)
+    no-repeat scroll -24px 0px;
+  right: -33px;
+}
+.blog .owl-carousel .owl-prev.disabled,
+.blog .owl-carousel .owl-next.disabled {
+  pointer-events: none;
+  opacity: 0.2;
+}
+.blog .owl-carousel .prev-slide:hover {
+  background-position: 0px -53px;
+}
+.blog .owl-carousel .next-slide:hover {
+  background-position: -24px -53px;
+}
+
+.blog .carousel-wrap .card h5 {
+  color: #d58b96;
+  font-family: "Syne", sans-serif;
+}
+.blog .carousel-wrap .card p {
+  color: #d58b96;
+  font-family: "Syne", sans-serif;
+}
+.blog .owl-prev {
+  width: 15px;
+  height: 100px;
+  position: absolute;
+  top: 40%;
+  margin-left: -20px;
+  display: block !important;
+}
+
+.blog .owl-next {
+  width: 15px;
+  height: 100px;
+  position: absolute;
+  top: 40%;
+  right: -25px;
+  display: block !important;
+  border: 0px solid black;
+}
+.blog .blog .owl-prev i,
+.blog .owl-next i {
+  transform: scale(3, 5);
+  color: #ccc;
+}
+
+.blog .card h5,
+.blog p {
+  color: gray;
+}
+
+.blog .d-grid .btn {
+  background-color: #d58b96;
+  border: 0;
+}

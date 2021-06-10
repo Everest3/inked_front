@@ -27,7 +27,7 @@ const Login = (props) => {
 
   return (
     <>
-      <div className="mb-3">
+      <div className={`mb-3 ${style.login}`}>
         <input
           type="text"
           className={`${style.input} form-control shadow`}

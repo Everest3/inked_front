@@ -1,37 +1,35 @@
 import React from "react";
 import img from "../../../assets/homesection/9002776b28684aec617c41554e33945f.jpg";
-import styles from "./bookpreview.module.css";
+import "./bookPreviw.css";
 const BookPreview = () => {
   return (
-    <div>
+    <div className="container book-preview">
       <div className="d-flex justify-content-center">
-        <div
-          className="card mb-3"
-          style={{ maxwidth: 800, border: 0, marginTop: 50 }}
-        >
+        <div className="card mb-3" style={{ maxWidth: "800px" }}>
           <div className="row g-0">
             <div className="col-md-4">
               <img
-                className={`mx-auto d-block ${styles.fotomesit}`}
+                className="mx-auto d-block"
                 src={img}
                 alt="book cover"
+                id="fotomesit"
               />
             </div>
             <div className="col-md-8">
-              <div className="card-body" id="card-body">
-                <h2 className={`${styles.cardTitle} card-title`}>Book Title</h2>
+              <div className="card-body" id="middle-card">
+                <h2 className="card-title">Book Title</h2>
                 <div
                   className="justify-content-md-start"
-                  style={{ fontfamily: '"syne", sans-serif', marginbottom: 20 }}
+                  style={{
+                    fontFamily: '"Syne", sans-serif',
+                    marginBottom: "20px",
+                  }}
                 >
-                  <button
-                    type="button"
-                    className={`btn ${styles.btnSm} btn-sm rounded-pill`}
-                  >
+                  <button type="button" className="btn btn-sm rounded-pill">
                     Incomplete
                   </button>
                 </div>
-                <h5 className="card-text plus justify-content-md-start">
+                <h5 className="card-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
                   tempora aut ipsam sit amet consectetur corporis vel quibusdam
                   odio architecto velit iure?
@@ -39,8 +37,8 @@ const BookPreview = () => {
                 <div className="plus justify-content-md-start">
                   <button
                     type="button"
-                    className={`btn ${styles.btnLg} text-nowrap rounded-pill`}
-                    style={{ fontfamily: '"syne", sans-serif' }}
+                    className="btn btn-lg text-nowrap rounded-pill"
+                    style={{ fontFamily: '"Syne", sans-serif' }}
                   >
                     Start reading
                   </button>
@@ -49,8 +47,7 @@ const BookPreview = () => {
                     className="btn btn-lg"
                     style={{ border: 0 }}
                   >
-                    {" "}
-                    Add
+                    <i className="fa fa-plus" aria-hidden="true" /> Add
                   </button>
                 </div>
               </div>

@@ -1,9 +1,9 @@
 import React from "react";
 import girl from "../../../assets/frontpageimages/girl.png";
-
+import "./frontpage.css";
 const FrontPage = () => {
   return (
-    <div className="container">
+    <div className="container front-page">
       <div className="row">
         <div
           className="col-md-6 col-xs-12 text-center"
@@ -40,7 +40,7 @@ const FrontPage = () => {
           <img src={girl} alt="Typing Girl" height="auto" width="90%" />
         </div>
       </div>
-      <div className="row">
+      <div className="row justify-content-center">
         <div className="col-md-12 icons">
           <ul className="list-inline">
             <li className="list-inline-item">

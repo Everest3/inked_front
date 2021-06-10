@@ -1,0 +1,16 @@
+.about-us h1 {
+  color: #edd2d6;
+  font-family: "Syne", sans-serif;
+  background-color: black;
+  height: 70px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 70px;
+  margin-top: 50px;
+  padding-left: 50px;
+}
+.about-us h4 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: left;
+}

@@ -33,7 +33,7 @@ export default function UserDrop() {
         className="btn dropdown-toggle"
         type="button"
         id="dropdownMenuButton1"
-        style={{ backgroundColor: "white", border: "none" }}
+        style={{ backgroundColor: "white", border: "none", marginTop: 8 }}
         onClick={() => {
           setToggle(!toggle);
         }}

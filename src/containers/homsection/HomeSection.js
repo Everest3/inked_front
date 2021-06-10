@@ -3,13 +3,13 @@ import RowCards from "../../components/global_components/row_cards/RowCards";
 import BookPreview from "../../components/homesection/book_preview/BookPreview";
 import FrontPage from "../../components/homesection/front_page/FrontPage";
 import { AuthContext } from "../../context/auth-context";
-
+import "./homesection.css";
 const HomeSection = () => {
   const auth = useContext(AuthContext);
   return (
     <>
       {auth.authenticated() ? (
-        <div className="container">
+        <div className="container readers-page">
           <div className="row">
             <div className="col">
               <h1

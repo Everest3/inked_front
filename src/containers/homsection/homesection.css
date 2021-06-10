@@ -1,0 +1,94 @@
+.readers-page #graybutton {
+  background-color: #8e9aaf;
+  color: white;
+  width: 200px;
+  margin-right: 20px;
+  box-shadow: 0px 1px 2px #888888;
+}
+.readers-page #graybutton:hover {
+  background-color: rgb(143, 140, 140);
+}
+.readers-page #graybutton:focus {
+  border-width: 3px;
+  border-color: rgb(126, 125, 125);
+}
+
+.readers-page .dropdown-item.active,
+.readers-page .dropdown-item:active {
+  text-decoration: none;
+  background-color: #d58b96;
+}
+.readers-page hr {
+  box-shadow: 0px 1px 2px #888888;
+}
+.readers-page .fa {
+  margin-top: 15px;
+}
+.readers-page h1 {
+  font-family: "Syne", sans-serif;
+  color: #8e9aaf;
+  margin-top: 50px;
+}
+.readers-page h4 {
+  margin-top: 50px;
+  margin-bottom: 40px;
+  font-family: "Syne", sans-serif;
+}
+.readers-page .card-group {
+  margin-bottom: 50px;
+}
+.readers-page .card {
+  margin-right: 30px;
+  border: 0;
+  padding: 0 !important;
+}
+/* .card-body  {
+	padding-left: 100px;
+} */
+
+.readers-page .card-title {
+  font-family: "Syne", sans-serif;
+}
+.readers-page .card-subtitle {
+  font-family: "Syne", sans-serif;
+}
+.readers-page .card .btn-sm {
+  background-color: #dee3ff;
+  color: black;
+  border: 0;
+  width: fit-content;
+}
+.readers-page .startreading .btn {
+  background-color: #d58b96;
+  color: white;
+  font-family: "Syne", sans-serif;
+  margin-top: 20px;
+}
+.readers-page .card .btn-sm {
+  background-color: #dee3ff;
+  color: black;
+  border: 0;
+  margin-top: 20px;
+  width: fit-content;
+  margin-right: 20px;
+}
+.readers-page h5 {
+  font-family: "Syne", sans-serif;
+}
+.readers-page .plus .btn-lg:first-child {
+  background-color: #d58b96;
+  color: white;
+  border: 0;
+  margin-top: 50px;
+}
+.readers-page .plus .btn-lg {
+  border: 0;
+  margin-top: 50px;
+}
+.readers-page #fotomesit {
+  width: 300px;
+  height: 350px;
+}
+.readers-page #middle-card {
+  padding-left: 100px;
+}

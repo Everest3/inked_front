@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/appbar/appbar_logo.png";
-import style from "./navbar.module.css";
 import Modal from "react-bootstrap/Modal";
 import Login from "../authentication/login/Login";
 import Register from "../authentication/register/register";
 import { AuthContext } from "../../context/auth-context";
 import UserDrop from "../../components/global_components/UserDrop";
-
+import style from "./appbar.css";
 const AppBar = () => {
   const auth = useContext(AuthContext);
   console.log(auth.authenticated());
@@ -27,10 +26,8 @@ const AppBar = () => {
   });
   return (
     <>
-      <nav
-        className={`${style.navbar} navbar navbar-expand-lg navbar-light bg-white`}
-      >
-        <div className={`container ${style.container}`}>
+      <nav className={`navbar navbar-expand-lg navbar-light bg-white`}>
+        <div className={`container`}>
           <Link
             to={"/"}
             className={`${style["navbar-brand"]} navbar-brand`}
@@ -61,11 +58,40 @@ const AppBar = () => {
             <div className=" navbar-nav" style={{ marginTop: 15 }}>
               <input
                 className={`${style["form-control"]} form-control me-5 rounded-pill`}
+                type="search"
+                style={{
+                  fontFamily: '"Syne", sans-serif',
+                  width: 400,
+                  height: 50,
+                }}
+                placeholder="Search a book..."
+                aria-label="Search"
+              />
+            </div>
+            <div className="navbar-nav" style={{ marginTop: 15 }}>
+              {/* <input
+                className={`form-control me-5 rounded-pill`}
                 id="search"
                 type="search"
                 placeholder="Search a book..."
                 aria-label="Search"
-              />
+              /> */}
+              {auth.authenticated() ? (
+                <Link to="/library">
+                  <button
+                    type="button"
+                    id="graybutton"
+                    className="btn btn-lg
+                  text-nowrap rounded-pill"
+                    style={{ marginLeft: 20, fontFamily: '"Syne", sans-serif' }}
+                  >
+                    {" "}
+                    {auth.user["tipi"] == "reader"
+                      ? "I am a reader"
+                      : "I am a reader"}
+                  </button>
+                </Link>
+              ) : null}
               {!auth.authenticated() ? (
                 <button
                   type="button"
@@ -86,7 +112,7 @@ const AppBar = () => {
               {!auth.authenticated() ? (
                 <button
                   type="button"
-                  className="btn btn-lg btn-dark text-nowrap rounded-pill"
+                  className={`${style.btn} btn btn-lg btn-dark text-nowrap rounded-pill`}
                   style={{ marginLeft: 20, fontFamily: '"Syne", sans-serif' }}
                   onClick={() => {
                     setCurrentApp(1);

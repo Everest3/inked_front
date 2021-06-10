@@ -62,7 +62,7 @@ const Register = (props) => {
     return (
       <>
         <meta name="csrf-token" content="{{ csrf_token() }}"></meta>
-        <div className="mb-3">
+        <div className={`mb-3 ${style.login}`}>
           <input
             type="text"
             className={`${style.input} form-control shadow`}

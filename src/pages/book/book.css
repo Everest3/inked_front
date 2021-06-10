@@ -1,0 +1,31 @@
+.book-page .col h4,
+.book-page p {
+  font-family: "Syne", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.book-page .card .icons i {
+  margin-top: 30px;
+}
+
+.book-page .keyword .btn {
+  background-color: #edd2ed;
+  border: 0;
+  color: black;
+  margin: 30px 20px 15px 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.book-page .col.d-flex.justify-content-center.flex-direction-keyword {
+  flex-direction: row;
+}
+
+.book-page .btn-keyword {
+  height: 50px !important;
+}
+.book-page .report .btn {
+  margin-bottom: 50px;
+  margin-top: 50px;
+  box-shadow: 1px 1px 2px #888888;
+}

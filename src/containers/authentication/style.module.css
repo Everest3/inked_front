@@ -1,4 +1,4 @@
-.roundedBtn {
+.login .roundedBtn {
   background-color: #dee2ff;
   color: black;
   font-family: "Syne", sans-serif;
@@ -9,25 +9,25 @@
   border-radius: 15px;
 }
 
-.roundedBtn:hover {
+.login .roundedBtn:hover {
   background-color: #d58b96;
   color: white;
 }
 
-.googlebtn {
+.login .googlebtn {
   background-color: #edd2d6;
   text-align: center;
   font-size: small;
   color: black;
 }
 
-h5 {
+.login h5 {
   color: #d58b96;
   font-family: "Syne", sans-serif;
   margin-left: 40%;
 }
 
-.modalBodyBtn {
+.login .modalBodyBtn {
   background-color: #dee2ff;
   color: black;
   font-family: "Syne", sans-serif;
@@ -38,23 +38,23 @@ h5 {
   border-radius: 15px;
 }
 
-.choseModalBtn {
+.login .choseModalBtn {
   background-color: white;
   color: #d58b96;
   margin-bottom: 20px;
   margin-top: 20px;
 }
 
-.choseModalBtn:hover {
+.login .choseModalBtn:hover {
   background-color: #d58b96;
   color: white;
 }
 
-.joinusBtn {
+.login .joinusBtn {
   border: 2px solid #d58b96;
 }
 
-.input {
+.login .input {
   margin-bottom: 30px;
   width: 300px;
   margin-left: 20%;

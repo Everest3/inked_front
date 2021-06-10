@@ -1,0 +1,80 @@
+.library hr {
+  box-shadow: 0px 1px 2px #888888;
+}
+.library .fa {
+  margin-top: 15px;
+}
+.library h1 {
+  font-family: "Syne", sans-serif;
+  margin-top: 50px;
+}
+.library .dashboard a {
+  color: black;
+  text-decoration: none;
+}
+.library .dashboard a:focus {
+  color: #d58b96;
+}
+.library .dashboard h4 {
+  font-family: "Syne", sans-serif;
+  margin-right: 40px;
+  margin-top: 50px;
+}
+.library .card-group {
+  margin-bottom: 50px;
+}
+.library .card {
+  margin-right: 30px;
+  border: 0;
+  padding: 0 !important;
+}
+/* .card-body  {
+	padding-left: 100px;
+} */
+
+.library .card-title {
+  font-family: "Syne", sans-serif;
+}
+.library .card-subtitle {
+  font-family: "Syne", sans-serif;
+}
+.library .card .btn-sm {
+  background-color: #dee3ff;
+  color: black;
+  border: 0;
+  width: fit-content;
+}
+.library .startreading .btn {
+  background-color: #d58b96;
+  color: white;
+  font-family: "Syne", sans-serif;
+  margin-top: 20px;
+}
+.library .card .btn-sm {
+  background-color: #dee3ff;
+  color: black;
+  border: 0;
+  margin-top: 20px;
+  width: fit-content;
+  margin-right: 20px;
+}
+.library h5 {
+  font-family: "Syne", sans-serif;
+}
+.library .plus .btn-lg:first-child {
+  background-color: #d58b96;
+  color: white;
+  border: 0;
+  margin-top: 50px;
+}
+.plus .btn-lg {
+  border: 0;
+  margin-top: 50px;
+}
+.library #fotomesit {
+  width: 300px;
+  height: 350px;
+}
+.library #middle-card {
+  padding-left: 100px;
+}
