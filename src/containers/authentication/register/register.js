@@ -1,26 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import style from "../style.module.css";
 import Modal from "react-bootstrap/Modal";
-import axios from "axios";
 import styles from "../style.module.css";
 import { AuthContext } from "../../../context/auth-context";
 
 const Register = (props) => {
   const [nextStep, setNextStep] = useState(false);
   const auth = useContext(AuthContext);
-
-  const initialValues = {
-    email: "",
-    password: "",
-    password_confirmation: "",
-    tipi: "",
-  };
-
-  useEffect(() => {
-    setValues(initialValues);
-  }, []);
-
-  const [values, setValues] = useState(initialValues);
+  const [values, setValues] = useState();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

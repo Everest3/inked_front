@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import RowCards from "../../components/global_components/row_cards/RowCards";
-import BookPreview from "../../components/homesection/book_preview/BookPreview";
+// import BookPreview from "../../components/homesection/book_preview/BookPreview";
+import { BooksContext } from "../../context/book-context";
+import Grid from "../../components/global_components/grid/Grid";
 import "./library.css";
 const Library = () => {
+  const books = useContext(BooksContext);
   return (
     <div className="library">
       <div className="container">
@@ -14,9 +17,9 @@ const Library = () => {
           <div className="row">
             <div className="dashboard">
               <div className="col d-flex">
-                <h4>
+                {/* <h4>
                   <Link href="#">Currently reading</Link>
-                </h4>
+                </h4> */}
                 <h4>
                   <Link href="#">Reading list</Link>
                 </h4>
@@ -36,17 +39,18 @@ const Library = () => {
       </div>
       <hr />
       <div className="container">
-        <RowCards />
+        {/* <RowCards /> */}
 
-        <BookPreview />
+        {/* <BookPreview /> */}
         <div class="col">
           <h4>Picks for you</h4>
         </div>
-        <RowCards />
+        <Grid books={books.readBooks} />
+        {/* <RowCards /> */}
         <div class="col">
           <h4>Picks for you</h4>
         </div>
-        <RowCards />
+        {/* <RowCards /> */}
       </div>
     </div>
   );

@@ -9,12 +9,9 @@ import UserDrop from "../../components/global_components/UserDrop";
 import style from "./appbar.css";
 const AppBar = () => {
   const auth = useContext(AuthContext);
-  console.log(auth.authenticated());
-  console.log(auth.user);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const [currentApp, setCurrentApp] = useState(0);
-
   var [toggle, setToggle] = useState(false);
   var collapseRef = useRef();
 
@@ -24,6 +21,7 @@ const AppBar = () => {
       ? (myCollapse.className = "navbar-collapse collapse show")
       : (myCollapse.className = "navbar-collapse collapse");
   });
+
   return (
     <>
       <nav className={`navbar navbar-expand-lg navbar-light bg-white`}>
@@ -55,7 +53,7 @@ const AppBar = () => {
             style={{ flexGrow: 0 }}
             ref={collapseRef}
           >
-            <div className=" navbar-nav" style={{ marginTop: 15 }}>
+            <div className="navbar-nav" style={{ marginTop: 15 }}>
               <input
                 className={`${style["form-control"]} form-control me-5 rounded-pill`}
                 type="search"
@@ -86,7 +84,7 @@ const AppBar = () => {
                     style={{ marginLeft: 20, fontFamily: '"Syne", sans-serif' }}
                   >
                     {" "}
-                    {auth.user["tipi"] == "reader"
+                    {auth.user["tipi"] === "reader"
                       ? "I am a reader"
                       : "I am a reader"}
                   </button>

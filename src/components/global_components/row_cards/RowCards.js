@@ -4,9 +4,9 @@ import Card from "../card/Card";
 const RowCards = (props) => {
   return (
     <div className="card-group">
-      <Card />
-      <Card />
-      <Card />
+      {props.books.map((book) => {
+        return <Card book={book} key={book["ID"]} />;
+      })}
     </div>
   );
 };

@@ -3,10 +3,10 @@ import React, { useState } from "react";
 
 export const AuthContext = React.createContext({
   authenticated: () => {},
+  token: "",
   loading: false,
   user: {},
   logout: (values) => {},
-  login: (values) => {},
   login: (values) => {},
 });
 
@@ -20,9 +20,14 @@ const AuthProvider = (props) => {
     await axios.post(`http://localhost:8000/api/login`, values).then((res) => {
       setIsLoading(false);
       if (res.status === 201) {
-        localStorage.setItem("token", res.data.token);
-        setUser(res.data.user);
+        // console.log(token);
         setToken(res.data.token);
+        // console.log(token);
+        // console.log(user);
+
+        setUser(res.data.user);
+        // console.log(user);
+        localStorage.setItem("token", res.data.token);
       }
     });
   };
@@ -39,6 +44,7 @@ const AuthProvider = (props) => {
       .post(`http://localhost:8000/api/register`, values)
       .then((res) => {
         if (res.status === 201) {
+          setToken(res.data.token);
           setUser(res.data.user);
           localStorage.setItem("token", res.data.token);
         }
@@ -52,12 +58,12 @@ const AuthProvider = (props) => {
   return (
     <AuthContext.Provider
       value={{
+        token: token,
         loading: loading,
         user: user,
         authenticated: authenticated,
         login: login,
         logout: logout,
-        token: token,
         register: register,
       }}
     >

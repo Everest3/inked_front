@@ -1,21 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import style from "../style.module.css";
 import Modal from "react-bootstrap/Modal";
-import axios from "axios";
 import { AuthContext } from "../../../context/auth-context";
 
 const Login = (props) => {
   const auth = useContext(AuthContext);
-  const initialValues = {
-    email: "",
-    password: "",
-  };
 
-  useEffect(() => {
-    setValues(initialValues);
-  }, []);
-
-  const [values, setValues] = useState(initialValues);
+  const [values, setValues] = useState({});
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

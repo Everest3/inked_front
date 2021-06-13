@@ -1,32 +1,38 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Footer from "../../components/global_components/footer/Footer";
 import BookPreview from "../../components/homesection/book_preview/BookPreview";
+import { useParams } from "react-router-dom";
+
 import AppBar from "../../containers/appbar/AppBar";
 import "./book.css";
-const Book = () => {
+import { BooksContext } from "../../context/book-context";
+const Book = (props) => {
+  let { id } = useParams();
+  const bookContext = useContext(BooksContext);
+  const [book, setBook] = useState({});
+
+  useEffect(() => {
+    function func() {
+      bookContext.fetchBookById(id).then((res) => {
+        setBook(res.data);
+      });
+    }
+    func();
+  }, [id]);
+
   return (
     <>
       <AppBar />
 
       <div className="book-page container">
-        <BookPreview />
+        <BookPreview book={book} />
         <div className="container col">
           <h4>
             <i className="fa fa-user-circle-o fa-xs" aria-hidden="true" />{" "}
-            Author username{" "}
+            {book["AUTORI"]}
           </h4>
           <h5 className="card-text" style={{ padding: "0px 25px" }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-            adipisicing elit. Molestias repellendus consectetur adipisicing elit
-            voluptatem sint odit distinctio sit! A perspiciatis adipisicing
-            elit. Molestias repellendus consectetur adipisicing elit voluptatem
-            sint odit distinctio sit! A perspiciatis similique quod recusandae.
-            Nesciunt aliquam iure quam voluptatibus similique quod recusandae.
-            Nesciunt aliquam iure quam voluptatibus repellendus consectetur
-            adipisicing elit voluptatem sint odit distinctio sit! A perspiciatis
-            similique quod recusandae. Nesciunt aliquam iure quam voluptatibus
-            quo officiis cumque ea, repellendus eius perspiciatis, dolore
-            quisquam? Fuga quam ut perferendis asperiores sit.
+            {book["PERSHKRIMI"]}
           </h5>
           <br />
         </div>

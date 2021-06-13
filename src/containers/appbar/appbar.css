@@ -10,7 +10,7 @@
 }
 
 @media (max-width: 980px) {
-  .form-control {
+  .navbar .form-control {
     width: 100% !important;
   }
   .collapse .btn {

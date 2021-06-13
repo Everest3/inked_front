@@ -1,42 +1,95 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "./auth-context";
 
 export const BooksContext = React.createContext({
-  books: {},
-  getBooks: () => {},
+  readBooks: [],
+  trendingBooks: [],
+  setTrendingBooks: () => {},
+  fetchReadBooks: () => {},
+  books: [],
+  fetchAllBooks: () => {},
+  fetchBookById: () => {},
+  fetchTrendingBooks: () => {},
 });
 
 const BooksProvider = (props) => {
   const [books, setBooks] = useState([]);
+  const [readBooks, setReadBooks] = useState([]);
+  const [trendingBooks, setTrendingBooks] = useState([]);
   const [loading, setIsLoading] = useState(false);
+  const auth = useContext(AuthContext);
 
+  const config = (token) => {
+    return {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+  };
   const fetchAllBooks = async () => {
     setIsLoading(true);
     await axios.get(`http://localhost:8000/api/libra`).then((res) => {
       setIsLoading(false);
-      if (res.status === 201) {
-        setBooks(res.data);
-        console.log(books);
+      if (res.status === 200) {
+        var data = res.data;
+        setBooks(data);
       }
     });
+    setIsLoading(false);
   };
 
-  const getBooks = (values) => {
-    var a = Math.floor(Math.random() * 17) + 1;
+  const fetchReadBooks = async (limit = "") => {
+    setIsLoading(true);
+    await axios
+      .get(`http://localhost:8000/api/readbooks/${limit}`, config(auth.token))
+      .then((res) => {
+        setIsLoading(false);
+        if (res.status === 200) {
+          var data = res.data;
+          setReadBooks(data);
+        }
+      });
+    setIsLoading(false);
+  };
 
-    return books.slice(a, a + 3);
+  const fetchBookById = async (id) => {
+    var response = await axios.get(
+      `http://localhost:8000/api/libra/${id}`,
+      config(auth.token)
+    );
+    return response;
+  };
+
+  const fetchTrendingBooks = async (limit = "") => {
+    await axios
+      .get(
+        `http://localhost:8000/api/trendingbooks/${limit}`,
+        config(auth.token)
+      )
+      .then((res) => {
+        setIsLoading(false);
+        if (res.status === 200) {
+          var data = res.data;
+          setTrendingBooks(data);
+        }
+      });
   };
 
   return (
     <BooksContext.Provider
       value={{
         loading: loading,
-        boks: books,
-        getBooks: getBooks,
+        readBooks: readBooks,
+        trendingBooks: trendingBooks,
+        fetchReadBooks: fetchReadBooks,
+        fetchBookById: fetchBookById,
+        fetchTrendingBooks: fetchTrendingBooks,
         fetchAllBooks: fetchAllBooks,
+        books: books,
       }}
     >
       {props.children}
     </BooksContext.Provider>
   );
 };
+
+export default BooksProvider;

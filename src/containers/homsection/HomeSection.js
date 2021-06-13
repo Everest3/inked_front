@@ -1,11 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import RowCards from "../../components/global_components/row_cards/RowCards";
 import BookPreview from "../../components/homesection/book_preview/BookPreview";
 import FrontPage from "../../components/homesection/front_page/FrontPage";
 import { AuthContext } from "../../context/auth-context";
+import { BooksContext } from "../../context/book-context";
 import "./homesection.css";
+
 const HomeSection = () => {
   const auth = useContext(AuthContext);
+  const books = useContext(BooksContext);
+
+  useEffect(() => {
+    function fetchReadBooks() {
+      if (auth.authenticated()) {
+        books.fetchReadBooks();
+        books.fetchTrendingBooks(3);
+      }
+    }
+    fetchReadBooks();
+  }, [auth]);
   return (
     <>
       {auth.authenticated() ? (
@@ -34,14 +47,14 @@ const HomeSection = () => {
                 >
                   Continue reading
                 </h4>
-                <RowCards />
-                <BookPreview />
-                <div class="row">
-                  <div class="col">
+                <RowCards books={books.readBooks} />
+                {/* <BookPreview /> */}
+                <div className="row">
+                  <div className="col">
                     <h4>Trending</h4>
                   </div>
                 </div>
-                <RowCards />
+                <RowCards books={books.trendingBooks} />
               </div>
             </div>
           </div>

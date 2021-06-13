@@ -1,7 +1,7 @@
 import React from "react";
 import img from "../../../assets/homesection/9002776b28684aec617c41554e33945f.jpg";
 import "./bookPreviw.css";
-const BookPreview = () => {
+const BookPreview = ({ book }) => {
   return (
     <div className="container book-preview">
       <div className="d-flex justify-content-center">
@@ -10,14 +10,14 @@ const BookPreview = () => {
             <div className="col-md-4">
               <img
                 className="mx-auto d-block"
-                src={img}
+                src={book["KOPERTINA"]}
                 alt="book cover"
                 id="fotomesit"
               />
             </div>
             <div className="col-md-8">
               <div className="card-body" id="middle-card">
-                <h2 className="card-title">Book Title</h2>
+                <h2 className="card-title">{book["EMER"]}</h2>
                 <div
                   className="justify-content-md-start"
                   style={{
