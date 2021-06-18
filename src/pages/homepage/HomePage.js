@@ -1,14 +1,18 @@
-import React from "react";
-import Footer from "../components/global_components/footer/Footer";
+import React, { useContext } from "react";
+import Footer from "../../components/footer/Footer";
 
-import AppBar from "../containers/appbar/AppBar";
-import HomeSection from "../containers/homsection/HomeSection";
+import AppBar from "../../components/appbar/AppBar";
+import HomeSection from "./homesection/HomeSection";
+import FrontPage from "./front_page/FrontPage";
+import { AuthContext } from "../../context/auth-context";
 
 const HomePage = () => {
+  const auth = useContext(AuthContext);
+
   return (
     <>
       <AppBar />
-      <HomeSection />
+      {auth.authenticated() ? <HomeSection /> : <FrontPage />}
       <Footer />
     </>
   );

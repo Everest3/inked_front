@@ -1,0 +1,81 @@
+.book-section hr {
+  box-shadow: 0px 1px 2px #888888;
+}
+
+.book-section h1 {
+  font-family: "Syne", sans-serif;
+}
+
+.book-section .btn {
+  font-family: "Syne", sans-serif;
+}
+
+.book-section .card .btn-sm i {
+  margin-top: 0;
+}
+
+.book-section .card {
+  border: 0;
+  margin-top: 50px;
+}
+.book-section .card .btn-sm {
+  background-color: #dee3ff;
+  color: black;
+  border: 0;
+  margin-top: 10px;
+  width: fit-content;
+  margin-right: 20px;
+}
+
+.book-section .card-body {
+  padding-top: 0;
+  padding-left: 50px;
+}
+
+.book-section .card-img-top {
+  width: 100%;
+}
+
+.book-section .plus .btn-lg:first-child {
+  background-color: #d58b96;
+  color: white;
+  border: 0;
+  margin-top: 30px;
+}
+
+.book-section .plus .btn-lg {
+  border: 0;
+  margin-top: 30px;
+}
+
+.book-section .col h4,
+.book-section p {
+  font-family: "Syne", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.book-section .card .icons i {
+  margin-top: 30px;
+}
+
+.book-section .keyword .btn {
+  background-color: #edd2ed;
+  border: 0;
+  color: black;
+  margin: 30px 20px 15px 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.book-section .col.d-flex.justify-content-center.flex-direction-keyword {
+  flex-direction: row;
+}
+
+.book-section .btn-keyword {
+  height: 50px !important;
+}
+.book-section .report .btn {
+  margin-bottom: 50px;
+  margin-top: 50px;
+  box-shadow: 1px 1px 2px #888888;
+}

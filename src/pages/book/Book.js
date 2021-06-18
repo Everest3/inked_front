@@ -1,16 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
-import Footer from "../../components/global_components/footer/Footer";
-import BookPreview from "../../components/homesection/book_preview/BookPreview";
+import Footer from "../../components/footer/Footer";
+import BookPreview from "../../components/book_preview/BookPreview";
 import { useParams } from "react-router-dom";
-
-import AppBar from "../../containers/appbar/AppBar";
+import BookSection from "./booksection/BookSection";
+import AppBar from "../../components/appbar/AppBar";
 import "./book.css";
 import { BooksContext } from "../../context/book-context";
-const Book = (props) => {
+const Book = () => {
   let { id } = useParams();
   const bookContext = useContext(BooksContext);
   const [book, setBook] = useState({});
-
+  useEffect(() => {
+    bookContext.fetchRandomBooks(3);
+  });
   useEffect(() => {
     function func() {
       bookContext.fetchBookById(id).then((res) => {
@@ -19,13 +21,12 @@ const Book = (props) => {
     }
     func();
   }, [id]);
-
   return (
     <>
       <AppBar />
 
       <div className="book-page container">
-        <BookPreview book={book} />
+        <BookSection book={book !== undefined ? book : {}} />
         <div className="container col">
           <h4>
             <i className="fa fa-user-circle-o fa-xs" aria-hidden="true" />{" "}

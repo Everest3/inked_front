@@ -9,13 +9,24 @@ const Login = (props) => {
   const [values, setValues] = useState({});
 
   const handleInputChange = (e) => {
+    auth.resetErrMessage();
     const { name, value } = e.target;
     setValues({
       ...values,
       [name]: value,
     });
   };
-
+  const showError = (errMessage) => {
+    return (
+      <div
+        style={{ width: 300, marginLeft: "20%" }}
+        className="alert alert-danger py-2 "
+        role="alert"
+      >
+        {errMessage}
+      </div>
+    );
+  };
   return (
     <>
       <div className={`mb-3 ${style.login}`}>
@@ -34,6 +45,7 @@ const Login = (props) => {
           name="password"
           onChange={handleInputChange}
         />
+        {auth.errMessage !== "" ? showError(auth.errMessage) : null}
         <button
           className={`${style.btn} ${style.roundedBtn} btn btn-lg btn-primary shadow `}
           onClick={() => auth.login(values)}

@@ -3,8 +3,8 @@ import foto from "../../assets/blogimages/foto.png";
 import { Link } from "react-router-dom";
 import "./blog.css";
 import girl from "../../assets/blogimages/girl.png";
-import Footer from "../../components/global_components/footer/Footer";
-import AppBar from "../../containers/appbar/AppBar";
+import Footer from "../../components/footer/Footer";
+import AppBar from "../../components/appbar/AppBar";
 
 const Blog = () => {
   return (

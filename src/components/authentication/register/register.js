@@ -7,7 +7,12 @@ import { AuthContext } from "../../../context/auth-context";
 const Register = (props) => {
   const [nextStep, setNextStep] = useState(false);
   const auth = useContext(AuthContext);
-  const [values, setValues] = useState();
+  const initialValues = {
+    email: "",
+    password: "",
+    password_confirmation: "",
+  };
+  const [values, setValues] = useState(initialValues);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -16,11 +21,22 @@ const Register = (props) => {
       [name]: value,
     });
   };
+  const showError = (errMessage) => {
+    return (
+      <div
+        style={{ width: 300, marginLeft: "20%" }}
+        className="alert alert-danger py-2 "
+        role="alert"
+      >
+        {errMessage}
+      </div>
+    );
+  };
 
   if (nextStep) {
     return (
       <>
-        <div className={style.choseModal}>
+        <div className={`${style.login} ${style.choseModal}`}>
           <h5 style={{ marginLeft: "43%" }}>I am a. . .</h5>
           <button
             className={`${styles.choseModalBtn} ${styles.modalBodyBtn} btn btn-lg btn-primary shadow`}
@@ -34,6 +50,7 @@ const Register = (props) => {
           >
             A reader
           </button>{" "}
+          {auth.errMessage !== "" ? showError(auth.errMessage) : null}
           <span>
             <button
               className={`${styles.joinusBtn} ${styles.choseModalBtn} ${styles.modalBodyBtn} btn btn-lg btn-primary shadow`}

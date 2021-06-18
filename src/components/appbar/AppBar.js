@@ -5,12 +5,15 @@ import Modal from "react-bootstrap/Modal";
 import Login from "../authentication/login/Login";
 import Register from "../authentication/register/register";
 import { AuthContext } from "../../context/auth-context";
-import UserDrop from "../../components/global_components/UserDrop";
+import UserDrop from "../UserDrop";
 import style from "./appbar.css";
 const AppBar = () => {
   const auth = useContext(AuthContext);
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    auth.resetErrMessage();
+  };
   const [currentApp, setCurrentApp] = useState(0);
   var [toggle, setToggle] = useState(false);
   var collapseRef = useRef();

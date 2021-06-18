@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../context/auth-context";
+import { AuthContext } from "../context/auth-context";
 
 export default function UserDrop() {
   const auth = useContext(AuthContext);

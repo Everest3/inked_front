@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "../../components/global_components/footer/Footer";
-import AppBar from "../../containers/appbar/AppBar";
+import Footer from "../../components/footer/Footer";
+import AppBar from "../../components/appbar/AppBar";
 import "./aboutus.css";
 import img from "../../assets/frontpageimages/girl.png";
 const AboutUs = () => {

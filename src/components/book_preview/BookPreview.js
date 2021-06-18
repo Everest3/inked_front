@@ -1,19 +1,39 @@
-import React from "react";
-import img from "../../../assets/homesection/9002776b28684aec617c41554e33945f.jpg";
+import React, { useEffect, useState, useContext } from "react";
 import "./bookPreviw.css";
-const BookPreview = ({ book }) => {
+import { Link } from "react-router-dom";
+import { BooksContext } from "../../context/book-context";
+import AddBookModal from "../addbookmodal/AddBookModal";
+
+const BookPreview = ({ id }) => {
+  const bookContext = useContext(BooksContext);
+  const [book, setBook] = useState({});
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    function func() {
+      bookContext.fetchBookById(id).then((res) => {
+        setBook(res.data);
+      });
+    }
+    func();
+  }, []);
   return (
     <div className="container book-preview">
       <div className="d-flex justify-content-center">
         <div className="card mb-3" style={{ maxWidth: "800px" }}>
           <div className="row g-0">
             <div className="col-md-4">
-              <img
-                className="mx-auto d-block"
-                src={book["KOPERTINA"]}
-                alt="book cover"
-                id="fotomesit"
-              />
+              <Link to={`/book/${id}`}>
+                <img
+                  className="mx-auto d-block card-img"
+                  src={book["KOPERTINA"]}
+                  alt="book cover"
+                  id="fotomesit"
+                />
+              </Link>
             </div>
             <div className="col-md-8">
               <div className="card-body" id="middle-card">
@@ -24,16 +44,8 @@ const BookPreview = ({ book }) => {
                     fontFamily: '"Syne", sans-serif',
                     marginBottom: "20px",
                   }}
-                >
-                  <button type="button" className="btn btn-sm rounded-pill">
-                    Incomplete
-                  </button>
-                </div>
-                <h5 className="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-                  tempora aut ipsam sit amet consectetur corporis vel quibusdam
-                  odio architecto velit iure?
-                </h5>
+                ></div>
+                <h5 className="card-text">{book["PERSHKRIMI"]}</h5>
                 <div className="plus justify-content-md-start">
                   <button
                     type="button"
@@ -46,9 +58,16 @@ const BookPreview = ({ book }) => {
                     type="button"
                     className="btn btn-lg"
                     style={{ border: 0 }}
+                    onClick={handleShow}
                   >
                     <i className="fa fa-plus" aria-hidden="true" /> Add
                   </button>
+                  <AddBookModal
+                    handleShow={handleShow}
+                    handleClose={handleClose}
+                    show={show}
+                    id={book["id"]}
+                  />
                 </div>
               </div>
             </div>
