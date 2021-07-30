@@ -7,9 +7,16 @@ import Register from "../authentication/register/register";
 import { AuthContext } from "../../context/auth-context";
 import UserDrop from "../UserDrop";
 import style from "./appbar.css";
+import Timer from "react-compound-timer";
+import { BooksContext } from "../../context/book-context";
+
 const AppBar = () => {
   const auth = useContext(AuthContext);
   const [show, setShow] = useState(false);
+  // const [searchQuery, setSearchQuery] = useState("");
+  const bookContext = useContext(BooksContext);
+  const [timerRunning, setTimmerRunning] = useState(false);
+
   const handleClose = () => {
     setShow(false);
     auth.resetErrMessage();
@@ -25,6 +32,16 @@ const AppBar = () => {
       : (myCollapse.className = "navbar-collapse collapse");
   });
 
+  const handleSearchInput = (e) => {
+    if (!timerRunning) {
+      setTimmerRunning(true);
+      setTimeout(() => {
+        console.log(e.target.value);
+        bookContext.searchBooks(e.target.value);
+        setTimmerRunning(false);
+      }, 1000);
+    }
+  };
   return (
     <>
       <nav className={`navbar navbar-expand-lg navbar-light bg-white`}>
@@ -56,8 +73,9 @@ const AppBar = () => {
             style={{ flexGrow: 0 }}
             ref={collapseRef}
           >
-            <div className="navbar-nav" style={{ marginTop: 15 }}>
+            <div className="navbar-nav search-bar" style={{ marginTop: 15 }}>
               <input
+                onChange={handleSearchInput}
                 className={`${style["form-control"]} form-control me-5 rounded-pill`}
                 type="search"
                 style={{
@@ -68,6 +86,18 @@ const AppBar = () => {
                 placeholder="Search a book..."
                 aria-label="Search"
               />
+              <ul className="list-group search-list">
+                {bookContext.searchedBooks.map((book) => {
+                  return (
+                    <Link to={`/book/${book["id"]}`}>
+                      <li className="list-group-item">{book["EMER"]}</li>
+                    </Link>
+                  );
+                })}
+                {/* <li className="list-group-item">sdfasfd</li>
+                <li className="list-group-item">dsfasf</li>
+                <li className="list-group-item">dafadsfa</li> */}
+              </ul>
             </div>
             <div className="navbar-nav" style={{ marginTop: 15 }}>
               {/* <input

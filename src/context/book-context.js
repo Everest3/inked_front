@@ -11,6 +11,8 @@ export const BooksContext = React.createContext({
   commonBooks: [],
   randomBooks: [],
   books: [],
+  searchedBooks: [],
+  searchBooks: () => {},
   fetchRandomBooks: () => {},
   fetchArchivedBooks: () => {},
   fetchBoughtBooks: () => {},
@@ -35,6 +37,7 @@ const BooksProvider = (props) => {
   const [boughtBooks, setBoughtBooks] = useState([]);
   const [archivedBooks, setArchivedBooks] = useState([]);
   const [randomBooks, setRandomBooks] = useState([]);
+  const [searchedBooks, setSearchedBooks] = useState([]);
   const [loading, setIsLoading] = useState(false);
   const auth = useContext(AuthContext);
 
@@ -203,6 +206,22 @@ const BooksProvider = (props) => {
       });
   };
 
+  const searchBooks = async (searchQuery) => {
+    await axios
+      .get(
+        `http://localhost:8000/api/libra/search/${searchQuery}`,
+        config(auth.token)
+      )
+      .then((res) => {
+        if (res.status === 200) {
+          var data = res.data;
+          console.log(data);
+          setSearchedBooks(data);
+          return res.data;
+        }
+      });
+  };
+
   return (
     <BooksContext.Provider
       value={{
@@ -214,6 +233,7 @@ const BooksProvider = (props) => {
         favoriteBooks: favoriteBooks,
         archivedBooks: archivedBooks,
         randomBooks: randomBooks,
+        searchedBooks: searchedBooks,
         fetchRandomBooks: fetchRandomBooks,
         newarchivedbooks: newarchivedbooks,
         newboughtbooks: newboughtbooks,
@@ -225,6 +245,7 @@ const BooksProvider = (props) => {
         fetchFavoriteBooks: fetchFavoriteBooks,
         fetchBookById: fetchBookById,
         fetchTrendingBooks: fetchTrendingBooks,
+        searchBooks: searchBooks,
         fetchAllBooks: fetchAllBooks,
         books: books,
       }}

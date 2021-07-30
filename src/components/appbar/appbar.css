@@ -42,3 +42,13 @@
   border-width: 3px;
   border-color: rgb(126, 125, 125);
 }
+
+.navbar .search-bar {
+  position: relative;
+}
+.search-bar .search-list {
+  position: absolute;
+  width: 90%;
+  top: 52px;
+  z-index: 1;
+}
