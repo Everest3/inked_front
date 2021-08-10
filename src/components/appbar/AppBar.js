@@ -13,9 +13,8 @@ import { BooksContext } from "../../context/book-context";
 const AppBar = () => {
   const auth = useContext(AuthContext);
   const [show, setShow] = useState(false);
-  // const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const bookContext = useContext(BooksContext);
-  const [timerRunning, setTimmerRunning] = useState(false);
 
   const handleClose = () => {
     setShow(false);
@@ -32,18 +31,30 @@ const AppBar = () => {
       : (myCollapse.className = "navbar-collapse collapse");
   });
 
-  const handleSearchInput = (e) => {
-    if (!timerRunning) {
-      setTimmerRunning(true);
-      setTimeout(() => {
-        console.log(e.target.value);
-        bookContext.searchBooks(e.target.value);
-        setTimmerRunning(false);
-      }, 1000);
+  useEffect(() => {
+    if (searchQuery === "") {
+      bookContext.clearSearch();
+      return;
     }
-  };
+    const indicator = setTimeout(() => {
+      bookContext.searchBooks(searchQuery);
+    }, 1000);
+    return () => {
+      clearTimeout(indicator);
+    };
+  }, [searchQuery]);
+
   return (
     <>
+      {searchQuery.length > 0 && (
+        <div
+          className="clearSearch"
+          onClick={() => {
+            setSearchQuery("");
+            bookContext.clearSearch();
+          }}
+        />
+      )}
       <nav className={`navbar navbar-expand-lg navbar-light bg-white`}>
         <div className={`container`}>
           <Link
@@ -75,7 +86,8 @@ const AppBar = () => {
           >
             <div className="navbar-nav search-bar" style={{ marginTop: 15 }}>
               <input
-                onChange={handleSearchInput}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className={`${style["form-control"]} form-control me-5 rounded-pill`}
                 type="search"
                 style={{
@@ -94,19 +106,9 @@ const AppBar = () => {
                     </Link>
                   );
                 })}
-                {/* <li className="list-group-item">sdfasfd</li>
-                <li className="list-group-item">dsfasf</li>
-                <li className="list-group-item">dafadsfa</li> */}
               </ul>
             </div>
             <div className="navbar-nav" style={{ marginTop: 15 }}>
-              {/* <input
-                className={`form-control me-5 rounded-pill`}
-                id="search"
-                type="search"
-                placeholder="Search a book..."
-                aria-label="Search"
-              /> */}
               {auth.authenticated() ? (
                 <Link to="/library">
                   <button

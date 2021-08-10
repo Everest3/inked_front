@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export const AuthContext = React.createContext({
   authenticated: () => {},
@@ -17,6 +17,14 @@ const AuthProvider = (props) => {
   const [loading, setIsLoading] = useState(false);
   const [token, setToken] = useState("");
   const [errMessage, setErrMessage] = useState("");
+
+  useEffect(() => {
+    let storedToken = localStorage.getItem("token");
+    if (storedToken != null) {
+      setToken(storedToken);
+    }
+  });
+
   const login = async (values) => {
     setIsLoading(true);
 
@@ -71,7 +79,7 @@ const AuthProvider = (props) => {
     setErrMessage("");
   };
   const authenticated = () => {
-    return Object.keys(user).length !== 0;
+    return token !== "";
   };
 
   return (

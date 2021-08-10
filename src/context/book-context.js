@@ -26,6 +26,7 @@ export const BooksContext = React.createContext({
   newarchivedbooks: () => {},
   newboughtbooks: () => {},
   newreadbooks: () => {},
+  clearSearch: () => {},
 });
 
 const BooksProvider = (props) => {
@@ -222,6 +223,10 @@ const BooksProvider = (props) => {
       });
   };
 
+  const clearSearch = () => {
+    setSearchedBooks([]);
+  };
+
   return (
     <BooksContext.Provider
       value={{
@@ -247,6 +252,7 @@ const BooksProvider = (props) => {
         fetchTrendingBooks: fetchTrendingBooks,
         searchBooks: searchBooks,
         fetchAllBooks: fetchAllBooks,
+        clearSearch: clearSearch,
         books: books,
       }}
     >
