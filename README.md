@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-A simple library to finds books you like and save them in differenct booklists.
+A simple library to finds books you like and save them in different booklists.
 
 ## Available Scripts
 
